@@ -5,7 +5,13 @@
 <%@ page import="modelDB.ProductVariantDB" %>
 <%@ page import="model.Order" %>
 <%@ page import="model.InforTransport" %>
-
+<%--
+  Created by IntelliJ IDEA.
+  User: Nguyen Nhu Toan
+  Date: 2023-11-29
+  Time: 3:50 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%
     List<OrderProductVariant> list = (List<OrderProductVariant>) request.getAttribute("dataOrder");
     if (list == null) list = new ArrayList<>();

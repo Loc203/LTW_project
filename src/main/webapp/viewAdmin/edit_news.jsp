@@ -1,8 +1,14 @@
 <%@ page import="model.OrderProductVariant" %>
 <%@ page import="model.InforTransport" %>
-<%@ page import="model.News" %>
+<%@ page import="model.News" %><%--
+  Created by IntelliJ IDEA.
+  User: Nguyen Nhu Toan
+  Date: 2023-11-29
+  Time: 3:50 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <% News news = (News) request.getAttribute("data");
-    if (news==null) news = new News(rs.getString("title"), rs.getString("content"), rs.getTimestamp("create_at"), rs.getTimestamp("update_at"), rs.getString("url_image"));
+//    if (news==null) news = new News(rs.getString("title"), rs.getString("content"), rs.getTimestamp("create_at"), rs.getTimestamp("update_at"), rs.getString("url_image"));
 
     String getMessage = (String) session.getAttribute("message");
 %>

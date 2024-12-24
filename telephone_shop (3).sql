@@ -1,3 +1,12 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th1 21, 2024 lúc 07:31 AM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -93,14 +102,14 @@ INSERT INTO `accounts` (`id`, `email`, `first_name`, `last_name`, `password`, `a
 
 CREATE TABLE `capacities` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL
+  `capacity_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `capacities`
 --
 
-INSERT INTO `capacities` (`id`, name) VALUES
+INSERT INTO `capacities` (`id`, `capacity_name`) VALUES
 (1, '64 GB'),
 (2, '128 GB'),
 (3, '256 GB'),
@@ -120,14 +129,14 @@ INSERT INTO `capacities` (`id`, name) VALUES
 
 CREATE TABLE `colors` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL
+  `color_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `colors`
 --
 
-INSERT INTO `colors` (`id`, name) VALUES
+INSERT INTO `colors` (`id`, `color_name`) VALUES
 (1, 'Đỏ'),
 (2, 'Xanh dương'),
 (3, 'Xanh lá'),
@@ -2452,3 +2461,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+telephone_shop

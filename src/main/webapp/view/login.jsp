@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Nguyen Nhu Toan
+  Date: 2023-11-21
+  Time: 5:29 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="/common/taglib.jsp" %>
 <html>
@@ -104,8 +111,7 @@
                     </div>
                 </div>
                 <div class="forgot-password" style="width: 100%;margin-bottom: 15px">
-                    <a href="${pageContext.request.contextPath}/forgot_password?action=forgot_password" class="txt1">Quên
-                        mật
+                    <a href="${pageContext.request.contextPath}/forgot_password?action=forgot_password" class="txt1">Quên mật
                         khẩu?</a>
                 </div>
                 <div class="p-t-15">
@@ -126,8 +132,12 @@
                         </button>
                     </div>
                     <div class="col-4">
-                        <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile&redirect_uri=http://localhost:8080/LoginGoogleHandle&response_type=code&client_id=477605457331-8ljhvdmosltg10etjnj7rd5ltjn43j5f.apps.googleusercontent.com&approval_prompt=force">
-                            Login With Google</a>
+<%--                        <button href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile&redirect_uri=http://localhost:8080/LoginGoogleHandle&response_type=code&client_id=477605457331-8ljhvdmosltg10etjnj7rd5ltjn43j5f.apps.googleusercontent.com&approval_prompt=force" class="btn-google m-b-20" id="google">--%>
+<%--                            <img src="../resources/assets/icon/google_icon.png" alt="GOOGLE">--%>
+<%--                            Google--%>
+<%--                        </button>--%>
+    <a href="https://accounts.google.com/o/oauth2/auth?scope=email%20profile&redirect_uri=http://localhost:8080/LoginGoogleHandle&response_type=code&client_id=477605457331-8ljhvdmosltg10etjnj7rd5ltjn43j5f.apps.googleusercontent.com&approval_prompt=force">
+        Login With Google</a>
                     </div>
                 </div>
             </div>

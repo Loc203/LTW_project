@@ -3,7 +3,13 @@
 <%@ page import="model.Cart" %>
 <%@ page import="service.NumberUtils" %>
 <%@ page import="model.Account" %>
-<%@ page import="config.URLConfig" %>
+<%@ page import="config.URLConfig" %><%--
+  Created by IntelliJ IDEA.
+  User: Admin
+  Date: 1/14/2024
+  Time: 12:23 AM
+  To change this template use File | Settings | File Templates.
+--%>
 <%
     Account account = (Account) session.getAttribute("account");
     double total = 0;

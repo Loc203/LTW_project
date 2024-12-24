@@ -1,7 +1,13 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.OrderProductVariant" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.News" %>
+<%@ page import="model.News" %><%--
+  Created by IntelliJ IDEA.
+  User: Nguyen Nhu Toan
+  Date: 2023-11-29
+  Time: 3:50 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <% List<News> list = (List<News>) request.getAttribute("datanew");
     if (list == null) list = new ArrayList<>();
     List<News> listNewsAlter = (List<News>) request.getAttribute("listNewsAlter");

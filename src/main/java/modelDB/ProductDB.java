@@ -104,8 +104,8 @@ public class ProductDB {
 
 
     public static ProductDB mapDataToObject(int id,String name, int manufacturer_id, int sell_quantity,
-                                            int remain_quantity, double price, String description,
-                                            int info_warranty_id) {
+                                     int remain_quantity, double price, String description,
+                                     int info_warranty_id) {
         ProductDB productDB = new ProductDB();
         productDB.setId(id);
         productDB.setName(name);

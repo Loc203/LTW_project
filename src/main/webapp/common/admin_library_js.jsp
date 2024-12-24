@@ -1,4 +1,10 @@
-
+<%--
+  Created by IntelliJ IDEA.
+  User: Nguyen Nhu Toan
+  Date: 2023-11-29
+  Time: 3:28 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/admin/modernizr-2.8.3.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/admin/jquery-2.2.4.min.js"></script>

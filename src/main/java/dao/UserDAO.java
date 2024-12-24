@@ -13,22 +13,19 @@ import java.util.Optional;
 
 public class UserDAO {
 
-    public List<Account> getAllUsers(   int limit, int offset) {
+    public List<Account> getAllUsers(int limit, int offset) {
 
-        String query = "SELECT * FROM accounts limit ? offset ?";
-
-        List<Account> users = JDBIConnector.me().withHandle(handle ->
-                handle.createQuery(query)
-                        .bind(0, limit)
-                        .bind(1, offset)
-                        .mapToBean(Account.class)
-                        .list());
+        String query = "SELECT * FROM accounts LIMIT ? OFFSET ?";
+        List<Account> users = JDBIConnector.me().withHandle(handle -> {
+            return handle.createQuery(query)
+                    .bind(0, limit)
+                    .bind(1, offset)
+                    .mapToBean(Account.class).list();
+        });
         return users.isEmpty() ? null : users;
     }
-
-
     public Account findUserByEmailAndPassword(String email, String password) {
-        String query = "SELECT * FROM accounts WHERE email = ?";
+        String query = "SELECT * FROM Accounts WHERE email = ? ";
         try {
             Optional<Account> user = JDBIConnector.me().withHandle(handle -> {
                 return handle.createQuery(query)
@@ -58,7 +55,7 @@ public class UserDAO {
     }
 
     public static boolean save(Account user) throws SQLException {
-        String query = "INSERT INTO accounts (email,first_name,last_name,password,address,gender,dob,phone_number,role,is_active,create_at) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?, ?,?)";
+        String query = "INSERT INTO Accounts (email,first_name,last_name,password,address,gender,dob,phone_number,role,is_active,create_at) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?, ?,?)";
         int rowUpdated = 0;
         if (user.getRole() == null) {
             user.setRole("user");
@@ -92,7 +89,7 @@ public class UserDAO {
 
     public int activeUserById(int idUser) {
         int rowUpdated = 0;
-        String query = "UPDATE accounts SET is_active = 1 WHERE id = ?";
+        String query = "UPDATE Accounts SET is_active = 1 WHERE id = ?";
         rowUpdated = JDBIConnector.me().withHandle(handle -> {
             return handle.createUpdate(query)
                     .bind(0, idUser)
@@ -103,7 +100,7 @@ public class UserDAO {
 
     public int blockUserById(int idUser) {
         int rowUpdated = 0;
-        String query = "UPDATE accounts SET is_active = 0 WHERE id = ?";
+        String query = "UPDATE Accounts SET is_active = 0 WHERE id = ?";
         rowUpdated = JDBIConnector.me().withHandle(handle -> {
             return handle.createUpdate(query)
                     .bind(0, idUser).execute();
@@ -112,7 +109,7 @@ public class UserDAO {
     }
 
     public Account getUserById(int idUser) {
-        String query = "SELECT * FROM accounts WHERE id = ?";
+        String query = "SELECT * FROM Accounts WHERE id = ?";
         Optional<Account> user = JDBIConnector.me().withHandle(handle -> {
             return handle.createQuery(query)
                     .bind(0, idUser)
@@ -132,7 +129,7 @@ public class UserDAO {
                 stringBuffer.append(value).append(",");
             }
         });
-        String query = "UPDATE accounts SET " + stringBuffer.substring(0, stringBuffer.length() - 1) + " WHERE id = ?";
+        String query = "UPDATE Accounts SET " + stringBuffer.substring(0, stringBuffer.length() - 1) + " WHERE id = ?";
         return JDBIConnector.me().withHandle(handle ->
                 handle.createUpdate(query)
                         .bind(0, idUser)
@@ -149,7 +146,7 @@ public class UserDAO {
 //    }
 
     public int deleteUserById(int idUser) {
-        String query = "DELETE FROM accounts WHERE id = ?";
+        String query = "DELETE FROM Accounts WHERE id = ?";
         return JDBIConnector.me().withHandle(handle ->
                 handle.createUpdate(query).
                         bind(0, idUser).
@@ -159,7 +156,7 @@ public class UserDAO {
     public List<Account> searchUserWithCondition(String keyword) {
 
         System.out.println("Key" + keyword);
-        String query = "SELECT * FROM accounts WHERE email LIKE :searchItem OR first_name LIKE :searchItem OR last_name LIKE :searchItem OR phone_number LIKE :searchItem";
+        String query = "SELECT * FROM Accounts WHERE email LIKE :searchItem OR first_name LIKE :searchItem OR last_name LIKE :searchItem OR phone_number LIKE :searchItem";
 
         List<Account> users = JDBIConnector.me().withHandle(handle ->
                 handle.createQuery(query)

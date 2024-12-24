@@ -2,7 +2,13 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="service.NumberUtils" %>
 <%@ page import="dao.TransportDAO" %>
-<%@ page import="model.*" %>
+<%@ page import="model.*" %><%--
+  Created by IntelliJ IDEA.
+  User: Nguyen Nhu Toan
+  Date: 2023-11-21
+  Time: 5:32 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="/common/taglib.jsp" %>
 <% double total =0;%>
