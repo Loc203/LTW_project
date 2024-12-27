@@ -1,10 +1,4 @@
-<%@ page import="model.Cart" %><%--
-  Created by IntelliJ IDEA.
-  User: Nguyen Nhu Toan
-  Date: 2023-11-22
-  Time: 5:28 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="model.Cart" %>
 <%Cart cart = (Cart) session.getAttribute("cart");
 if (cart==null) cart = new Cart();
 %>

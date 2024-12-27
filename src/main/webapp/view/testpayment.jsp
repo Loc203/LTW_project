@@ -4,13 +4,7 @@
 <%@ page import="model.Cart" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="service.NumberUtils" %>
-<%@ page import="model.Account" %><%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 1/20/2024
-  Time: 12:20 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="model.Account" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     Cart cart = (Cart) session.getAttribute("cart");

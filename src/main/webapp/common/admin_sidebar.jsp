@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Nguyen Nhu Toan
-  Date: 2023-11-29
-  Time: 3:10 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <div class="sidebar-menu">
     <div class="sidebar-header">
         <div class="logo">

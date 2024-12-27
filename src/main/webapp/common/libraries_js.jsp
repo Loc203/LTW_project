@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Nguyen Nhu Toan
-  Date: 2023-11-22
-  Time: 5:18 PM
-  To change this template use File | Settings | File Templates.
---%>
 <script src="${pageContext.request.contextPath}/resources/libs/jquery-3.4.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/libs/jquery/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/admin/plugins.js"></script>

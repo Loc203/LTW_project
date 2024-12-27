@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Nguyen Nhu Toan
-  Date: 2023-11-29
-  Time: 3:14 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin/themify-icons.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin/metisMenu.css">
