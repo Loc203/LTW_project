@@ -29,10 +29,10 @@ public class ManageUserController extends HttpServlet {
         int numberPage = (numberProduct / limit) + 1;
         int index = request.getParameter("index") != null ? Integer.parseInt(request.getParameter("index")) : 1;
         offset += (index-1) * limit;
-        List<Account> users = userService.getAllUsers(limit,offset);
         request.setAttribute("currentIndex", index);
         request.setAttribute("numberPage", numberPage);
         String actionRequest = request.getParameter("action");
+        List<Account> users = userService.getAllUsers(limit,offset);
         request.setAttribute("users", users);
         if (actionRequest != null) {
             doPost(request, response);

@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--link den css-->
     <%@include file="/common/admin_library_css.jsp" %>
-    <link href="${pageContext.request.contextPath}/resources/css/user/main.css" rel="stylesheet" media="all">
+    <link href="${pageContext.request.contextPath}/resources/css/admin/model.css" rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/libs/datepicker/css/bootstrap/zebra_datepicker.css"
           rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/libs/datepicker/css/bootstrap/zebra_datepicker.min.css"
@@ -60,8 +60,6 @@
     String message = (String) session.getAttribute("message");
     Boolean status = (Boolean) session.getAttribute("status");
     Capacity capacityEdit = (Capacity) request.getAttribute("capacity");
-    int numberPage = (int) request.getAttribute("numberPage");
-    int currentIndex = (int) request.getAttribute("currentIndex");
 %>
 <body>
 <div id="preloader">
@@ -250,7 +248,7 @@
 
 
         <!-- Modal to alter user -->
-        <%if(capacityEdit != null){%>
+            <%if(capacityEdit != null){%>
         <div class="modal" id="modalAlterManufacturer" role="dialog" data-backdrop="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -283,7 +281,7 @@
                 </div>
             </div>
         </div>
-        <%}%>
+            <%}%>
 
         <!-- Modal to notify delete capacity -->
         <form id="formDeleteUser" method="post">
@@ -306,105 +304,105 @@
         </form>
 
 
-        <!-- Paging -->
-        <%if (numberPage > 1) {%>
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <button id="previousPage" class="page-link" style="<%=currentIndex == 1 ? "pointer-events: none" : ""%>" onclick="pPage(<%=currentIndex%>)">Previous</button>
-                        </li>
-                        <%
-                            for (int i = 1; i <= numberPage; i++) {
-                        %>
-                        <li class="page-item"><a class="page-link" style="<%=i == currentIndex ? "background-color: blue; color: black" : ""%>"
-                                                 href="${pageContext.request.contextPath}/admin/product/manage_product?index=<%=i%>"><%=i%>
-                        </a></li>
-                        <%}%>
-                        <li class="page-item">
-                            <button id="nextPage" class="page-link" style="<%=currentIndex == numberPage ? "pointer-events: none" : ""%>" onclick="nPage(<%=currentIndex%>)">Next</button>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <%}%>
-    </div>
-    <%@include file="/common/admin_footer.jsp" %>
-</div>
-<script>
-    var modalAlterManufacturer = document.getElementById("modalAlterManufacturer");
-    var selectedButton = document.getElementById("selectedButton");
-    var modalDeleteUser = document.getElementById("modalDeleteUser");
-    var modalRegisterManufacturer = document.getElementById("modalRegisterManufacturer");
+        <%--        <!-- Paging -->--%>
+        <%--        <%if (numberPage > 1) {%>--%>
+        <%--        <div class="row">--%>
+        <%--            <div class="col-12 d-flex justify-content-center">--%>
+        <%--                <nav aria-label="Page navigation example">--%>
+        <%--                    <ul class="pagination">--%>
+        <%--                        <li class="page-item">--%>
+        <%--                            <button id="previousPage" class="page-link" style="<%=currentIndex == 1 ? "pointer-events: none" : ""%>" onclick="pPage(<%=currentIndex%>)">Previous</button>--%>
+        <%--                        </li>--%>
+        <%--                        <%--%>
+        <%--                            for (int i = 1; i <= numberPage; i++) {--%>
+        <%--                        %>--%>
+        <%--                        <li class="page-item"><a class="page-link" style="<%=i == currentIndex ? "background-color: blue; color: black" : ""%>"--%>
+        <%--                                                 href="${pageContext.request.contextPath}/admin/product/manage_product?index=<%=i%>"><%=i%>--%>
+        <%--                        </a></li>--%>
+        <%--                        <%}%>--%>
+        <%--                        <li class="page-item">--%>
+        <%--                            <button id="nextPage" class="page-link" style="<%=currentIndex == numberPage ? "pointer-events: none" : ""%>" onclick="nPage(<%=currentIndex%>)">Next</button>--%>
+        <%--                        </li>--%>
+        <%--                    </ul>--%>
+        <%--                </nav>--%>
+        <%--            </div>--%>
+        <%--        </div>--%>
+        <%--        <%}%>--%>
+        <%--    </div>--%>
+        <%--    <%@include file="/common/admin_footer.jsp" %>--%>
+        <%--</div>--%>
+        <%--<script>--%>
+        <%--    var modalAlterManufacturer = document.getElementById("modalAlterManufacturer");--%>
+        <%--    var selectedButton = document.getElementById("selectedButton");--%>
+        <%--    var modalDeleteUser = document.getElementById("modalDeleteUser");--%>
+        <%--    var modalRegisterManufacturer = document.getElementById("modalRegisterManufacturer");--%>
 
-    function pPage(currentIndex) {
-        if (currentIndex > 1) {
-            var link = $('#previousPage');
-            link.attr('onclick', 'pPage(' + (currentIndex - 1) + ')');
-            link.click();
-        }
-    }
+        <%--    function pPage(currentIndex) {--%>
+        <%--        if (currentIndex > 1) {--%>
+        <%--            var link = $('#previousPage');--%>
+        <%--            link.attr('onclick', 'pPage(' + (currentIndex - 1) + ')');--%>
+        <%--            link.click();--%>
+        <%--        }--%>
+        <%--    }--%>
 
-    function nPage(currentIndex) {
-        if (currentIndex < <%=numberPage%>) {
-            var link = $('#nextPage');
-            link.attr('onclick', 'nPage(' + (currentIndex + 1) + ')');
-            link.click();
-        }
-    }
+        <%--    function nPage(currentIndex) {--%>
+        <%--        if (currentIndex < <%=numberPage%>) {--%>
+        <%--            var link = $('#nextPage');--%>
+        <%--            link.attr('onclick', 'nPage(' + (currentIndex + 1) + ')');--%>
+        <%--            link.click();--%>
+        <%--        }--%>
+        <%--    }--%>
+        <script>
+            function submitAddManufacturer() {
+                var form = document.getElementById("formAddManufacturer");
+                form.submit();
+            }
 
-    function submitAddManufacturer() {
-        var form = document.getElementById("formAddManufacturer");
-        form.submit();
-    }
+            function onSubmitSearch() {
+                var page = document.getElementById('formSearch');
+                page.action = '/admin/manage_capacity?action=search&keyword=' + document.getElementById('keyword').value;
+                page.submit();
+            }
 
-    function onSubmitSearch() {
-        var page = document.getElementById('formSearch');
-        page.action = '/admin/manage_capacity?action=search&keyword=' + document.getElementById('keyword').value;
-        page.submit();
-    }
+            function submitFormDelete() {
+                var formDeleteUser = document.getElementById("formDeleteUser");
+                formDeleteUser.action = "/admin/manage_capacity?action=delete&id=" + document.getElementById("inputSaveIdUser").value;
+                formDeleteUser.submit();
+            }
 
-    function submitFormDelete() {
-        var formDeleteUser = document.getElementById("formDeleteUser");
-        formDeleteUser.action = "/admin/manage_capacity?action=delete&id=" + document.getElementById("inputSaveIdUser").value;
-        formDeleteUser.submit();
-    }
-
-    function submitAlterManufacturer() {
-        var form = document.getElementById("formAlterCapacity");
-        form.submit();
-    }
-
-
-    function openModalRegister() {
-        modalRegisterManufacturer.style.display = "block";
-    }
+            function submitAlterManufacturer() {
+                var form = document.getElementById("formAlterCapacity");
+                form.submit();
+            }
 
 
-    function openModalDeleteUser(x) {
-        modalDeleteUser.style.display = "flex";
-        document.getElementById("inputSaveIdUser").value = x;
-        console.log(document.getElementById("inputSaveIdUser").value);
-    }
+            function openModalRegister() {
+                modalRegisterManufacturer.style.display = "block";
+            }
 
-    function closeModalDeleteUser() {
-        modalDeleteUser.style.display = "none";
-    }
 
-    function openModalAlter() {
-        modalAlterManufacturer.style.display = "block";
-    }
+            function openModalDeleteUser(x) {
+                modalDeleteUser.style.display = "flex";
+                document.getElementById("inputSaveIdUser").value = x;
+                console.log(document.getElementById("inputSaveIdUser").value);
+            }
 
-    function closeModalAlter() {
-        modalAlterManufacturer.style.display = "none";
-    }
-</script>
-<%@include file="/common/admin_library_js.jsp" %>
-<%@include file="/common/libraries_js.jsp" %>
-<script src="${pageContext.request.contextPath}/resources/libs/datepicker/zebra_datepicker.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/libs/datepicker/zebra_datepicker.src.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/user/datepicker.js"></script>
+            function closeModalDeleteUser() {
+                modalDeleteUser.style.display = "none";
+            }
+
+            function openModalAlter() {
+                modalAlterManufacturer.style.display = "block";
+            }
+
+            function closeModalAlter() {
+                modalAlterManufacturer.style.display = "none";
+            }
+        </script>
+        <%@include file="/common/admin_library_js.jsp" %>
+        <%@include file="/common/libraries_js.jsp" %>
+        <script src="${pageContext.request.contextPath}/resources/libs/datepicker/zebra_datepicker.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/libs/datepicker/zebra_datepicker.src.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/user/datepicker.js"></script>
 </body>
 </html>

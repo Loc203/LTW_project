@@ -5,13 +5,6 @@
 <%@ page import="model.ProductImage" %>
 <%@ page import="config.URLConfig" %>
 <%@include file="/common/taglib.jsp" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Nguyen Nhu Toan
-  Date: 2023-11-29
-  Time: 3:51 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!doctype html>
 <html lang="en">
@@ -22,7 +15,7 @@
     <title>Quản lý sản phẩm</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%@include file="/common/admin_library_css.jsp" %>
-    <link href="${pageContext.request.contextPath}/resources/css/user/main.css" rel="stylesheet" media="all">
+    <link href="${pageContext.request.contextPath}/resources/css/admin/model.css" rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/libs/datepicker/css/bootstrap/zebra_datepicker.css"
           rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/libs/datepicker/css/bootstrap/zebra_datepicker.min.css"

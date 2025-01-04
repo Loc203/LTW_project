@@ -1,13 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.InfoWarranty" %>
 <%@include file="/common/taglib.jsp" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Nguyen Nhu Toan
-  Date: 2024-01-07
-  Time: 10:03 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!doctype html>
 <html lang="en">
@@ -18,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--link den css-->
     <%@include file="/common/admin_library_css.jsp" %>
-    <link href="${pageContext.request.contextPath}/resources/css/user/main.css" rel="stylesheet" media="all">
+    <link href="${pageContext.request.contextPath}/resources/css/admin/model.css" rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/libs/datepicker/css/bootstrap/zebra_datepicker.css"
           rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/libs/datepicker/css/bootstrap/zebra_datepicker.min.css"

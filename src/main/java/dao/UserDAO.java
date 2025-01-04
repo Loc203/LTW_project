@@ -13,19 +13,19 @@ import java.util.Optional;
 
 public class UserDAO {
 
-    public List<Account> getAllUsers(int limit, int offset) {
+    public List<Account> getAllUsers(   int limit, int offset) {
 
-        String query = "SELECT * FROM accounts LIMIT ? OFFSET ?";
-        List<Account> users = JDBIConnector.me().withHandle(handle -> {
-            return handle.createQuery(query)
-                    .bind(0, limit)
-                    .bind(1, offset)
-                    .mapToBean(Account.class).list();
-        });
+        String query = "SELECT * FROM accounts limit ? offset ?";
+        List<Account> users = JDBIConnector.me().withHandle(handle ->
+                handle.createQuery(query)
+                        .bind(0, limit)
+                        .bind(1, offset)
+                        .mapToBean(Account.class)
+                        .list());
         return users.isEmpty() ? null : users;
     }
     public Account findUserByEmailAndPassword(String email, String password) {
-        String query = "SELECT * FROM Accounts WHERE email = ? ";
+        String query = "SELECT * FROM accounts WHERE email = ? ";
         try {
             Optional<Account> user = JDBIConnector.me().withHandle(handle -> {
                 return handle.createQuery(query)
@@ -55,7 +55,7 @@ public class UserDAO {
     }
 
     public static boolean save(Account user) throws SQLException {
-        String query = "INSERT INTO Accounts (email,first_name,last_name,password,address,gender,dob,phone_number,role,is_active,create_at) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?, ?,?)";
+        String query = "INSERT INTO accounts (email,first_name,last_name,password,address,gender,dob,phone_number,role,is_active,create_at) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?, ?,?)";
         int rowUpdated = 0;
         if (user.getRole() == null) {
             user.setRole("user");

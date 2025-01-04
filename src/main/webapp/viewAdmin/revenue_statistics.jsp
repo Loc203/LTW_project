@@ -1,11 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="model.*" %><%--
-  Created by IntelliJ IDEA.
-  User: Nguyen Nhu Toan
-  Date: 2024-01-21
-  Time: 11:08 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="model.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html class="no-js" lang="en">
 
@@ -15,7 +9,7 @@
     <title>Thong ke doanh so</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%@include file="/common/admin_library_css.jsp" %>
-    <link href="${pageContext.request.contextPath}/resources/css/user/main.css" rel="stylesheet" media="all">
+    <link href="${pageContext.request.contextPath}/resources/css/admin/model.css" rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/libs/datepicker/css/bootstrap/zebra_datepicker.css"
           rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/libs/datepicker/css/bootstrap/zebra_datepicker.min.css"
