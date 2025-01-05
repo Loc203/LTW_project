@@ -25,7 +25,7 @@ public class UserDAO {
         return users.isEmpty() ? null : users;
     }
     public Account findUserByEmailAndPassword(String email, String password) {
-        String query = "SELECT * FROM accounts WHERE email = ? ";
+        String query = "SELECT * FROM accounts WHERE email = ?";
         try {
             Optional<Account> user = JDBIConnector.me().withHandle(handle -> {
                 return handle.createQuery(query)
