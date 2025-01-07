@@ -5,6 +5,7 @@ import model.Account;
 import org.jdbi.v3.core.Jdbi;
 import org.mindrot.jbcrypt.BCrypt;
 
+import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -16,6 +17,7 @@ public class UserDAO {
     public List<Account> getAllUsers(   int limit, int offset) {
 
         String query = "SELECT * FROM accounts limit ? offset ?";
+
         List<Account> users = JDBIConnector.me().withHandle(handle ->
                 handle.createQuery(query)
                         .bind(0, limit)
@@ -24,8 +26,26 @@ public class UserDAO {
                         .list());
         return users.isEmpty() ? null : users;
     }
+
+    public static boolean checkLogin(String tk, String mk) {
+        String query = "select count(*) from accounts where email = :email and password = :password";
+        try {
+            int count = JDBIConnector.me().withHandle(handle ->
+                    handle.createQuery(query)
+                            .bind("email", tk)
+                            .bind("password", mk)
+                            .mapTo(Integer.class)
+                            .one()
+            );
+            return count == 1;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public Account findUserByEmailAndPassword(String email, String password) {
-        String query = "SELECT * FROM accounts WHERE email = ?";
+        String query = "SELECT * FROM Accounts WHERE email = ?";
         try {
             Optional<Account> user = JDBIConnector.me().withHandle(handle -> {
                 return handle.createQuery(query)
@@ -55,7 +75,7 @@ public class UserDAO {
     }
 
     public static boolean save(Account user) throws SQLException {
-        String query = "INSERT INTO accounts (email,first_name,last_name,password,address,gender,dob,phone_number,role,is_active,create_at) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?, ?,?)";
+        String query = "INSERT INTO Accounts (email,first_name,last_name,password,address,gender,dob,phone_number,role,is_active,create_at) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?, ?,?)";
         int rowUpdated = 0;
         if (user.getRole() == null) {
             user.setRole("user");

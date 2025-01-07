@@ -1,4 +1,10 @@
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.List" %><%--
+  Created by IntelliJ IDEA.
+  User: Nguyen Nhu Toan
+  Date: 2023-11-21
+  Time: 5:29 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="/common/taglib.jsp" %>
 <html>
@@ -35,10 +41,13 @@
         font-family: Inter, Helvetica, Arial, sans-serif;
     }
 </style>
+<% String count =(String)  session.getAttribute("countLoginFaild");
 
+%>
 <body>
 <%@include file="/common/header.jsp" %>
 <%
+    String notLogin = (String) request.getAttribute("notLogin") == null ? "": (String) request.getAttribute("notLogin");
     String error = (String) request.getAttribute("error") == null ? "" : (String) request.getAttribute("error");
     String message = (String) session.getAttribute("message");
     Boolean status = (Boolean) session.getAttribute("status");
@@ -54,6 +63,7 @@
         <div class="message">
             <span class="text text-1" style="color: greenyellow">Thành công</span>
             <span class="text text-2" style="color: greenyellow"><%=message%></span>
+            <span class="text text-2" style="color: greenyellow"><%=notLogin%></span>
         </div>
     </div>
     <i class="fa-solid fa-xmark close"></i>
@@ -69,6 +79,8 @@
         <div class="message">
             <span class="text text-1 text-danger">Thất bại</span>
             <span class="text text-2 text-danger"><%=message%></span>
+            <span class="text text-2" style="color: greenyellow"><%=notLogin%></span>
+
         </div>
     </div>
     <i class="fa-solid fa-xmark close"></i>
@@ -84,8 +96,12 @@
 <%
     session.removeAttribute("message");
     session.removeAttribute("status");
+    session.removeAttribute("notLogin");
+
 %>
 <%}%>
+<span class="text text-2" style="color: greenyellow"><%=notLogin%></span>
+
 <div class="container" style="margin-bottom: 50px;margin-top: 50px">
     <div class="card card-4" style="width: 550px">
         <div class="card-body">

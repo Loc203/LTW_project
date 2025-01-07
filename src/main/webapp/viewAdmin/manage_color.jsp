@@ -379,6 +379,8 @@
 </script>
 <%@include file="/common/admin_library_js.jsp" %>
 <%@include file="/common/libraries_js.jsp" %>
+<script src="${pageContext.request.contextPath}/resources/js/user/main.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/admin/slide_show.js"></script>
 <script src="${pageContext.request.contextPath}/resources/libs/datepicker/zebra_datepicker.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/libs/datepicker/zebra_datepicker.src.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/user/datepicker.js"></script>
