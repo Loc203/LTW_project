@@ -127,7 +127,7 @@
                 if (errorMessage != null) {
                     for (String eString : errorMessage) {
             %>
-            <h1><%=eString%></h1>
+            <h4 style="background: transparent"><%=eString%></h4>
             <%
                     }
                 }%>
