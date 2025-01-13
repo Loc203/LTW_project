@@ -45,8 +45,24 @@
     String error = (String) request.getAttribute("error") == null ? "" : (String) request.getAttribute("error");
     String message = (String) session.getAttribute("message");
     Boolean status = (Boolean) session.getAttribute("status");
+    String notLoginMessage = (String) request.getAttribute("notLogin");
 %>
-<% if (status != null && status) {%>
+<% if (notLoginMessage != null && !notLoginMessage.isEmpty()) {%>
+<div class="toast">
+    <div class="toast-content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+             class="bi bi-exclamation-circle-fill" viewBox="0 0 20 20">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+        </svg>
+        <div class="message">
+            <span class="text text-1 text-danger">Thất bại</span>
+            <span class="text text-2 text-danger"><%= notLoginMessage %></span>
+        </div>
+    </div>
+    <i class="fa-solid fa-xmark close"></i>
+    <div class="progress"></div>
+</div>
+<%} else if (status != null && status) {%>
 <div class="toast">
     <div class="toast-content">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-circle"
@@ -56,24 +72,22 @@
         </svg>
         <div class="message">
             <span class="text text-1" style="color: greenyellow">Thành công</span>
-            <span class="text text-2" style="color: greenyellow"><%=message%></span>
-            <span class="text text-2" style="color: greenyellow"><%=notLogin%></span>
+            <span class="text text-2" style="color: greenyellow"><%= message %></span>
         </div>
     </div>
     <i class="fa-solid fa-xmark close"></i>
     <div class="progress"></div>
 </div>
-<%} else {%>
+<%} else if (message != null) {%>
 <div class="toast">
     <div class="toast-content">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
              class="bi bi-exclamation-circle-fill" viewBox="0 0 20 20">
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+            <path d="M16 8A8 8 0 1 1 0 8 a8 8 0 0 1 16 0M8 4 a.905.905 0 0 0-.9.995 l.35 3.507 a.552.552 0 0 0 1.1 0 l.35-3.507 A.905.905 0 0 0 8 4 m.002 6 a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
         </svg>
         <div class="message">
             <span class="text text-1 text-danger">Thất bại</span>
-            <span class="text text-2 text-danger"><%=message%></span>
-            <span class="text text-2" style="color: greenyellow"><%=notLogin%></span>
+            <span class="text text-2 text-danger"><%= message %></span>
         </div>
     </div>
     <i class="fa-solid fa-xmark close"></i>
@@ -81,7 +95,7 @@
 </div>
 <%}%>
 <script src="${pageContext.request.contextPath}/resources/js/user/toast.js"></script>
-<%if (message != null) {%>
+<%if (message != null || notLoginMessage != null) {%>
 <script>
     showToast();
     setTimeout(() => document.querySelector(".toast").style.display = "none", 5000);
@@ -89,10 +103,7 @@
 <%
     session.removeAttribute("message");
     session.removeAttribute("status");
-    session.removeAttribute("notLogin");
 %>
-<span class="text text-2" style="color: greenyellow"><%=notLogin%></span>
-
 <%}%>
 <div class="container" style="margin-bottom: 50px;margin-top: 50px">
     <div class="card card-4" style="width: 550px">

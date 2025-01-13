@@ -11,9 +11,44 @@ public class ProductVariant {
     private List<ProductImage> productImages;
     private Color color;
     private Capacity capacity;
+    private int colorId;
+    private int capacityId;
+    private String nameCapacity;
+    private String nameColor;
+    private String nameProduct;
+
+    public String getNameCapacity() {
+        return nameCapacity;
+    }
+    public String getNameProduct() {
+        return nameProduct;
+    }
+    public void setNameProduct(String nameProduct) {
+        this.nameProduct = nameProduct;
+    }
+    public void setNameCapacity(String nameCapacity) {
+        this.nameCapacity = nameCapacity;
+    }
+    public String getNameColor() {
+        return nameColor;
+    }
+    public void setNameColor(String nameColor) {
+        this.nameColor = nameColor;
+    }
+    public int getColorId() {
+        return colorId;
+    }
+    public void setColorId(int colorId) {
+        this.colorId = colorId;
+    }
+    public int getCapacityId() {
+        return capacityId;
+    }
+    public void setCapacityId(int capacityId) {
+        this.capacityId = capacityId;
+    }
 
     private int state;
-
 
     public int getState() {
         return state;
@@ -86,6 +121,11 @@ public class ProductVariant {
                 ", productImages=" + productImages +
                 ", color=" + color +
                 ", capacity=" + capacity +
+                ", colorId=" + colorId +
+                ", capacityId=" + capacityId +
+                ", nameCapacity='" + nameCapacity + '\'' +
+                ", nameColor='" + nameColor + '\'' +
+                ", nameProduct='" + nameProduct + '\'' +
                 ", state=" + state +
                 '}';
     }
