@@ -20,7 +20,7 @@ public class ManageUserController extends HttpServlet {
     @Inject
     private UserService userService;
 
-    int limit = 20;
+    int limit = 1000;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

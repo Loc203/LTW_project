@@ -2,10 +2,10 @@ package dao;
 
 import config.JDBIConnector;
 import model.Account;
-import org.jdbi.v3.core.Jdbi;
 import org.mindrot.jbcrypt.BCrypt;
 
-import javax.servlet.http.HttpServletRequest;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -45,7 +45,7 @@ public class UserDAO {
     }
 
     public Account findUserByEmailAndPassword(String email, String password) {
-        String query = "SELECT * FROM Accounts WHERE email = ?";
+        String query = "SELECT * FROM accounts WHERE email = ?";
         try {
             Optional<Account> user = JDBIConnector.me().withHandle(handle -> {
                 return handle.createQuery(query)
@@ -75,7 +75,7 @@ public class UserDAO {
     }
 
     public static boolean save(Account user) throws SQLException {
-        String query = "INSERT INTO Accounts (email,first_name,last_name,password,address,gender,dob,phone_number,role,is_active,create_at) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?, ?,?)";
+        String query = "INSERT INTO accounts (email,first_name,last_name,password,address,gender,dob,phone_number,role,is_active,create_at) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?, ?,?)";
         int rowUpdated = 0;
         if (user.getRole() == null) {
             user.setRole("user");

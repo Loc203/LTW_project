@@ -1,10 +1,4 @@
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: Nguyen Nhu Toan
-  Date: 2023-11-21
-  Time: 5:29 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="/common/taglib.jsp" %>
 <html>
@@ -42,8 +36,8 @@
     }
 </style>
 <% String count =(String)  session.getAttribute("countLoginFaild");
-
 %>
+
 <body>
 <%@include file="/common/header.jsp" %>
 <%
@@ -80,7 +74,6 @@
             <span class="text text-1 text-danger">Thất bại</span>
             <span class="text text-2 text-danger"><%=message%></span>
             <span class="text text-2" style="color: greenyellow"><%=notLogin%></span>
-
         </div>
     </div>
     <i class="fa-solid fa-xmark close"></i>
@@ -97,11 +90,10 @@
     session.removeAttribute("message");
     session.removeAttribute("status");
     session.removeAttribute("notLogin");
-
 %>
-<%}%>
 <span class="text text-2" style="color: greenyellow"><%=notLogin%></span>
 
+<%}%>
 <div class="container" style="margin-bottom: 50px;margin-top: 50px">
     <div class="card card-4" style="width: 550px">
         <div class="card-body">
