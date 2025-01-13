@@ -203,9 +203,11 @@
             var soSanPhamTrenTrang = 16;
             var trangHienTai = 1;
             var pagination = $('#pagination');
+
             function updatePagination(tongSanPham) {
                 var tongSoTrang = Math.ceil(tongSanPham / soSanPhamTrenTrang);
                 pagination.find('.pagination').empty(); // Clear existing pagination
+
                 if (tongSoTrang > 1) {
                     var html = '';
                     html += '<li class="page-item ' + (trangHienTai === 1 ? 'disabled' : '') + '">';
